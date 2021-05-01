@@ -1,4 +1,4 @@
-require "turbo"
+require "./turbo"
 require "cable"
 require "base64"
 require "openssl/hmac"
@@ -36,9 +36,8 @@ module Turbo
       broadcast_action "remove", to: stream_name, message: ""
     end
 
-    def self.broadcast_action(action : String, to stream_name : String, message : String)
-      broadcast_to stream_name, 
-        "<turbo-stream action=#{action.inspect} target=#{stream_name.inspect}><template>#{message}</template></turbo-stream>"
+    def self.broadcast_action(action : String, stream_name : String, target : String, message : String)
+      broadcast_to stream_name, "<turbo-stream action=#{action.inspect} target=#{target.inspect}><template>#{message}</template></turbo-stream>"
     end
 
     def self.signed_stream_name(streamables : Enumerable(String)) : String
