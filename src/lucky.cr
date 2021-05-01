@@ -8,7 +8,7 @@ module Lucky::Turbo
   end
 
   def turbo_frame(id : String, src : String)
-    tag "turbo-frame", id: id, src: src do
+    tag "turbo-frame", id: id, src: src, loading: "lazy" do
       yield
     end
   end
