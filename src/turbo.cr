@@ -4,13 +4,13 @@ require "http"
 module Turbo
   def self.javascript_tag
     <<-HTML
-      <script src="https://unpkg.com/@hotwired/turbo@7.0.0-beta.4/dist/turbo.es5-umd.js"></script>
+      <script src="https://unpkg.com/@hotwired/turbo@8.0.4/dist/turbo.es2017-umd.js"></script>
     HTML
   end
 
   def self.cable_tag
     <<-HTML
-      <script src="https://unpkg.com/actioncable@5.2.4-4/lib/assets/compiled/action_cable.js"></script>
+      <script src="https://unpkg.com/@rails/actioncable/app/assets/javascripts/actioncable.esm.js"></script>
       <script>
       (function() {
       let consumer
